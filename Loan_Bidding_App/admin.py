@@ -3,7 +3,6 @@ from db import loans_collection, bids_collection
 from bson import ObjectId
 
 def view_admin_dashboard():
-    """Admin dashboard for loan management."""
     st.subheader("📊 Admin Dashboard")
 
     loans = list(loans_collection.find({}))
@@ -24,7 +23,6 @@ def view_admin_dashboard():
         st.success("✅ Loan matching completed!")
 
 def match_loans():
-    """Matches loans to lowest interest rate bids."""
     loans = list(loans_collection.find({"status": "pending"}))
     for loan in loans:
         loan_id_str = str(loan["_id"])
@@ -35,6 +33,5 @@ def match_loans():
             accept_loan_bid(ObjectId(loan_id_str), best_bid)
 
 def accept_loan_bid(loan_id, bid):
-    """Accepts the best bid for a loan."""
     loans_collection.update_one({"_id": loan_id}, {"$set": {"status": "funded"}})
     st.success(f"🎉 Loan `{loan_id}` funded at {bid['interest_rate']}% interest by {bid['lender']}")
