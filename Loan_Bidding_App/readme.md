@@ -1,28 +1,34 @@
-📌 Debt Auction Marketplace
-🚀 Overview
-Debt Auction Marketplace is a loan bidding system built using Streamlit and MongoDB.
-Users can request loans, and lenders can place bids with interest rates.
-The system matches borrowers with the best available lenders automatically.
+💳 Debt Auction Marketplace
+📚 Course Information
+Course Name: AF3005 – Programming for Finance
 
-📂 Project Structure:
+Instructor: Dr. Usama Arshad
 
-📁 Debt Auction Marketplace
-│── 📄 app.py # Main Streamlit application
-│── 📄 db.py # MongoDB connection
-│── 📄 auth.py # Authentication (Signup/Login)
-│── 📄 bidding.py # Loan & bidding logic
-│── 📄 admin.py # Admin dashboard & loan matching
-│── 📄 .env # Environment variables
-│── 📄 requirements.txt # Dependencies list
-│── 📄 README.md # Project documentation (this file)
-🔧 Setup Instructions
+🚀 App Overview
+The Debt Auction Marketplace is a loan bidding platform where users can request loans, and lenders can bid with competitive interest rates. The system then matches the borrower with the best available lender based on the lowest interest rate.
 
+🔑 Key Features:
+✅ User & Admin authentication (secure login/signup)
+✅ Loan Requests: Borrowers can request loans with specific amounts & durations
+✅ Bidding System: Lenders can place bids with custom interest rates
+✅ Admin Dashboard: Admins can view all loans and match them with the best bids
+✅ Financial Data Visualization:
+
+📈 Loan request trends over time
+
+📊 Loan status distribution
+
+🏆 Top lenders leaderboard
+
+🔍 Interest rate trends
+
+💻 Installation Guide (How to run locally?)
 1️⃣ Clone the Repository
 git clone https://github.com/your-repo/debt-auction-marketplace.git
 cd debt-auction-marketplace
 
 2️⃣ Install Dependencies
-Create a virtual environment and install the required Python packages.
+Create a virtual environment and install the required Python packages:
 
 # Create a virtual environment
 
@@ -47,40 +53,35 @@ Ensure MongoDB is installed and running on localhost:27017.
 Create a .env file in the project root with the following content:
 
 MONGO_URI=mongodb://localhost:27017/debt_auction_db
-
 4️⃣ Run the Application
 streamlit run app.py
 The app will open in your browser at http://localhost:8501.
 
+🚀 Deployment Link
+👉 Live App on Streamlit
+
 🔐 Admin Credentials
 An admin account is automatically created when the app starts.
-
-Use these credentials to access the Admin Dashboard:
 
 Username: admin123
 
 Password: securepassword
 
-📊 Features
-🔑 Authentication
-✅ User & Admin login system with password encryption.
-✅ Signup for new users (Admins are created automatically).
+Use these credentials to access the Admin Dashboard.
 
-💵 Loan Requests & Bidding
-✅ Users can request loans with an amount & duration.
-✅ Lenders can place bids with competitive interest rates.
-✅ Borrowers can view & accept the best bid.
+📷 Screenshots
+🔑 Login Page
 
-⚙️ Admin Dashboard
-✅ View all loan requests.
-✅ Match loans to the best available bid.
+📌 Loan Request Page
 
-📊 Financial Data Visualization
-✅ Interactive graphs & charts (Matplotlib & Seaborn).
-✅ Loan request trends over time.
-✅ Loan status distribution.
-✅ Top lenders leaderboard.
-✅ Interest rate trends analysis.
+💰 Bidding Page
+
+📊 Financial Insights
+
+(📹 Watch a Demo Video)
+
+🔗 GitHub Repository
+👉 GitHub Repo
 
 📦 Dependencies
 streamlit - UI Framework
@@ -102,11 +103,11 @@ seaborn - Advanced Data Charts
 To install all dependencies, run:
 
 pip install -r requirements.txt
-💡 Future Improvements
-✅ Email notifications for loan requests & bid approvals.
-✅ Live WebSocket updates for real-time bidding.
-✅ User profile pages with past transactions.
-✅ Automated credit scoring system.
+🚀 Future Improvements
+✅ Email notifications for loan requests & bid approvals
+✅ Live WebSocket updates for real-time bidding
+✅ User profile pages with past transactions
+✅ Automated credit scoring system
 
 🤝 Contributing
 Feel free to fork this repo and contribute!
