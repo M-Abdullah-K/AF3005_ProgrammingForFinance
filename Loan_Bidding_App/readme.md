@@ -77,7 +77,7 @@ Use these credentials to access the Admin Dashboard.
 💰 Bidding Page
 ![Screenshot (314)](https://github.com/user-attachments/assets/d193e9f3-232c-4919-9388-ef585e139f02)
 
-View Loan (Accept Loan on own bids, and view other loans)
+View Loan (Accept Loan on personal requests, and view other requests)
 ![Screenshot (317)](https://github.com/user-attachments/assets/d179bb84-a4fc-440f-ace7-95b973c7e262)
 
 📊 Financial Insights
