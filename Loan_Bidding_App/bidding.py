@@ -3,7 +3,6 @@ from db import loans_collection, bids_collection
 from bson import ObjectId
 
 def request_loan(username):
-    """Allows a user to request a loan."""
     st.subheader("📝 Request a Loan")
     
     amount = st.number_input("💰 Loan Amount ($)", min_value=100, step=100)
@@ -15,20 +14,15 @@ def request_loan(username):
         st.success("🎉 Loan request submitted!")
 
 def place_bid(username):
-    """Allows users to place bids, ensuring they can't bid on their own loans."""
     st.subheader("💰 Place a Bid")
 
-    # Fetch all pending loans
     loans = list(loans_collection.find({"status": "pending"}))
-
-    # Exclude loans created by the logged-in user
     available_loans = [loan for loan in loans if loan["borrower"] != username]
 
     if not available_loans:
         st.warning("🚫 No available loan requests to bid on (or all are your own).")
         return
 
-    # Show better loan details in dropdown
     loan_details = {f"💵 ${loan['amount']} | ⏳ {loan['duration']} months | Borrower: {loan['borrower']}": str(loan["_id"]) for loan in available_loans}
 
     selected_loan = st.selectbox("📌 Select Loan", list(loan_details.keys()))
@@ -41,7 +35,6 @@ def place_bid(username):
         st.success(f"✅ Your bid was placed for {selected_loan}")
 
 def view_loan_requests(username):
-    """Displays loans with bids and allows borrowers to accept bids."""
     st.subheader("📜 Your Loan Requests")
 
     loans = list(loans_collection.find({"borrower": username, "status": "pending"}))
@@ -60,7 +53,7 @@ def view_loan_requests(username):
         if not bids:
             st.write("🚫 No bids yet.")
         else:
-            bids.sort(key=lambda x: x["interest_rate"])  # Sort by lowest interest rate
+            bids.sort(key=lambda x: x["interest_rate"])
             best_bid = bids[0]
             st.write(f"🏆 **Best Bid:** {best_bid['interest_rate']}% by {best_bid['lender']}")
 
@@ -68,7 +61,6 @@ def view_loan_requests(username):
                 accept_loan_bid(ObjectId(loan_id_str), best_bid)
 
 def accept_loan_bid(loan_id, bid):
-    """Accepts the best bid for a loan."""
     loans_collection.update_one({"_id": loan_id}, {"$set": {"status": "funded"}})
     st.success(f"🎉 Loan {loan_id} funded at {bid['interest_rate']}% by {bid['lender']}")
 
