@@ -83,7 +83,9 @@ View Loan (Accept Loan on personal requests, and view other requests)
 📊 Financial Insights
 ![Screenshot (318)](https://github.com/user-attachments/assets/371e404c-0f10-4b8c-acf5-77c13f196781)
 
-(📹 Watch a Demo Video)
+Admin (With Match Loans Feature)
+![Screenshot (319)](https://github.com/user-attachments/assets/73d7f5d9-835a-41e5-a200-b418b7ea05fb)
+
 
 
 🔗 GitHub Repository
