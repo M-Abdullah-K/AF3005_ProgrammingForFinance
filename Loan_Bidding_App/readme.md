@@ -103,6 +103,8 @@ seaborn - Advanced Data Charts
 To install all dependencies, run:
 
 pip install -r requirements.txt
+
+
 🚀 Future Improvements
 ✅ Email notifications for loan requests & bid approvals
 ✅ Live WebSocket updates for real-time bidding
