@@ -5,7 +5,7 @@ Course Name: AF3005 – Programming for Finance
 Instructor: Dr. Usama Arshad
 
 🚀 App Overview
-The Debt Auction Marketplace is a loan bidding platform where users can request loans, and lenders can bid with competitive interest rates. The system then matches the borrower with the best available lender based on the lowest interest rate.
+The Debt Auction Marketplace is a loan bidding platform where users can request loans, and lenders can bid with competitive interest rates. How is works is that some user places their loan requests, others can view and bid on this request as well as place their own loan requests. The borrowers can then accept the lowest interest rate. The admin also has privledges to accept the best bids for all the users, "Matching" the borrowers and the lenders. This helps us find the best loans through the market forces of demand and supply.
 
 🔑 Key Features:
 ✅ User & Admin authentication (secure login/signup)
@@ -24,8 +24,6 @@ The Debt Auction Marketplace is a loan bidding platform where users can request 
 
 💻 Installation Guide (How to run locally?)
 1️⃣ Clone the Repository
-git clone https://github.com/your-repo/debt-auction-marketplace.git
-cd debt-auction-marketplace
 
 2️⃣ Install Dependencies
 Create a virtual environment and install the required Python packages:
@@ -47,6 +45,7 @@ venv\Scripts\activate
 # Install dependencies
 
 pip install -r requirements.txt
+
 3️⃣ Set Up MongoDB
 Ensure MongoDB is installed and running on localhost:27017.
 
@@ -58,7 +57,7 @@ streamlit run app.py
 The app will open in your browser at http://localhost:8501.
 
 🚀 Deployment Link
-👉 Live App on Streamlit
+👉 https://af3005programmingforfinance-uu6emrjhzgp73hlkynpnal.streamlit.app/
 
 🔐 Admin Credentials
 An admin account is automatically created when the app starts.
@@ -73,15 +72,22 @@ Use these credentials to access the Admin Dashboard.
 🔑 Login Page
 
 📌 Loan Request Page
+![Screenshot (316)](https://github.com/user-attachments/assets/80152123-37ac-4d7e-913e-9e10186745ad)
 
 💰 Bidding Page
+![Screenshot (314)](https://github.com/user-attachments/assets/d193e9f3-232c-4919-9388-ef585e139f02)
+
+View Loan (Accept Loan on own bids, and view other loans)
+![Screenshot (317)](https://github.com/user-attachments/assets/d179bb84-a4fc-440f-ace7-95b973c7e262)
 
 📊 Financial Insights
+![Screenshot (318)](https://github.com/user-attachments/assets/371e404c-0f10-4b8c-acf5-77c13f196781)
 
 (📹 Watch a Demo Video)
 
+
 🔗 GitHub Repository
-👉 GitHub Repo
+👉 https://github.com/M-Abdullah-K/AF3005_ProgrammingForFinance/tree/main/Loan_Bidding_App
 
 📦 Dependencies
 streamlit - UI Framework
