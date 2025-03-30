@@ -8,36 +8,25 @@ from admin import match_loans, view_admin_dashboard
 from db import loans_collection, bids_collection
 import time
 
-# ✅ Ensure the admin account exists only once
 if "admin_checked" not in st.session_state:
     ensure_admin_exists()
     st.session_state["admin_checked"] = True
 
-# 🌟 Custom CSS for Animations & Styling
 st.markdown(
     """
     <style>
     .big-font { font-size:22px !important; font-weight: bold; }
     .small-text { font-size:16px; color: gray; }
-
-    /* Animations */
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     .fade-in { animation: fadeIn 1.5s; }
-
     @keyframes slideIn {
         from { transform: translateY(-20px); opacity: 0; }
         to { transform: translateY(0); opacity: 1; }
     }
     .slide-in { animation: slideIn 1s ease-out; }
-
-    /* Button Hover Effect */
     .stButton>button { transition: 0.3s; border-radius: 8px; }
     .stButton>button:hover { transform: scale(1.05); background-color: #ff7f50; color: white; }
-
-    /* Sidebar styling */
     .stSidebar { background-color: #f8f9fa; padding: 10px; border-radius: 8px; }
-
-    /* Custom card-style container */
     .card {
         padding: 15px;
         border-radius: 10px;
@@ -50,20 +39,16 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# 🎭 App Title
 st.title("💳 Debt Auction Marketplace")
 
-# 🌍 Spinner for smooth loading
 with st.spinner("🚀 Loading application..."):
-    time.sleep(1.5)  # Simulating a loading delay
+    time.sleep(1.5)
 
-# ✅ Initialize session state
 if "logged_in" not in st.session_state:
     st.session_state["logged_in"] = False
     st.session_state["username"] = ""
     st.session_state["is_admin"] = False
 
-# 🚪 LOGIN & SIGNUP SYSTEM
 if not st.session_state["logged_in"]:
     tab_login, tab_signup = st.tabs(["🔑 Login", "📝 Signup"])
 
@@ -98,7 +83,6 @@ if not st.session_state["logged_in"]:
             else:
                 st.warning("⚠️ Please enter a username and password.")
 
-# 🏠 MAIN INTERFACE (AFTER LOGIN)
 else:
     st.sidebar.markdown(f"👋 **Welcome, {st.session_state['username']}**")
     menu_options = ["📌 Request Loan", "💰 Place a Bid", "📑 View Loans", "📊 Financial Insights", "🚪 Logout"]
@@ -125,11 +109,9 @@ else:
         st.subheader("📊 Financial Data Visualization")
         st.markdown("Analyze loan and bid trends with interactive graphs!")
 
-        # Fetch Data from Database
         loans_data = list(loans_collection.find({}))
         bids_data = list(bids_collection.find({}))
 
-        # 📈 Loan Requests Over Time
         if loans_data:
             df_loans = pd.DataFrame(loans_data)
             df_loans["date"] = pd.to_datetime(df_loans["_id"].apply(lambda x: x.generation_time))
@@ -144,7 +126,6 @@ else:
             plt.grid(True)
             st.pyplot(fig)
 
-        # 📊 Loan Status Distribution
         if loans_data:
             df_loans_status = pd.DataFrame(loans_data)
             st.markdown("### 📊 Loan Status Distribution")
@@ -154,7 +135,6 @@ else:
             plt.ylabel("Count")
             st.pyplot(fig)
 
-        # 🏆 Top Lenders Leaderboard
         if bids_data:
             df_bids = pd.DataFrame(bids_data)
             df_bids_grouped = df_bids.groupby("lender")["interest_rate"].count().reset_index()
@@ -164,7 +144,6 @@ else:
             st.markdown("### 🏆 Top Lenders Leaderboard")
             st.table(df_bids_grouped)
 
-        # 🔍 Interest Rate Trends
         if bids_data:
             df_bids["interest_rate"] = df_bids["interest_rate"].astype(float)
             st.markdown("### 🔍 Interest Rate Trends")
