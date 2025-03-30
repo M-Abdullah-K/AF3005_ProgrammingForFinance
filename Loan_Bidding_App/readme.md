@@ -1,17 +1,16 @@
 💳 Debt Auction Marketplace
 📚 Course Information
 Course Name: AF3005 – Programming for Finance
-
 Instructor: Dr. Usama Arshad
 
 🚀 App Overview
-The Debt Auction Marketplace is a loan bidding platform where users can request loans, and lenders can bid with competitive interest rates. How is works is that some user places their loan requests, others can view and bid on this request as well as place their own loan requests. The borrowers can then accept the lowest interest rate. The admin also has privledges to accept the best bids for all the users, "Matching" the borrowers and the lenders. This helps us find the best loans through the market forces of demand and supply.
+The Debt Auction Marketplace is a loan bidding platform where users can request loans, and lenders can bid with competitive interest rates. Borrowers place loan requests, lenders can view and bid on these requests, and the borrower can accept the lowest interest rate. Additionally, an admin has privileges to match the best bids for all users, optimizing loans through the market forces of demand and supply.
 
-🔑 Key Features:
-✅ User & Admin authentication (secure login/signup)
-✅ Loan Requests: Borrowers can request loans with specific amounts & durations
-✅ Bidding System: Lenders can place bids with custom interest rates
-✅ Admin Dashboard: Admins can view all loans and match them with the best bids
+🔑 Key Features
+✅ User & Admin Authentication (secure login/signup)
+✅ Loan Requests: Borrowers request loans with specific amounts & durations
+✅ Bidding System: Lenders bid with custom interest rates
+✅ Admin Dashboard: Admins can view all loans & match them with the best bids
 ✅ Financial Data Visualization:
 
 📈 Loan request trends over time
@@ -22,9 +21,10 @@ The Debt Auction Marketplace is a loan bidding platform where users can request 
 
 🔍 Interest rate trends
 
-💻 Installation Guide (How to run locally?)
+💻 Installation Guide (How to Run Locally?)
 1️⃣ Clone the Repository
-
+git clone https://github.com/M-Abdullah-K/AF3005_ProgrammingForFinance.git
+cd Loan_Bidding_App
 2️⃣ Install Dependencies
 Create a virtual environment and install the required Python packages:
 
@@ -45,14 +45,44 @@ venv\Scripts\activate
 # Install dependencies
 
 pip install -r requirements.txt
-
 3️⃣ Set Up MongoDB
-Ensure MongoDB is installed and running on localhost:27017.
+Option 1: Local Implementation (MongoDB Compass)
+Install MongoDB from MongoDB Official Website.
 
-Create a .env file in the project root with the following content:
+Open MongoDB Compass and connect to:
+
+mongodb://localhost:27017
+Create a new database:
+
+Name: debt_auction_db
+Create three collections:
+
+users, loans, bids
+Add the following .env file in the root directory:
 
 MONGO_URI=mongodb://localhost:27017/debt_auction_db
+Option 2: Cloud Deployment (MongoDB Atlas for Streamlit Share)
+Create a MongoDB Atlas Account: Sign up here.
+
+Create a new cluster and choose free tier.
+
+Create a new database named:
+
+debt_auction_db
+Get your connection string from Atlas and update your .env file:
+
+MONGO_URI="your_mongodb_atlas_uri_here"
+Update Streamlit Secrets:
+
+Go to Streamlit Share Dashboard → Secrets
+
+Add:
+
+MONGO_URI="your_mongodb_atlas_uri_here"
+Deploy the App on Streamlit!
+
 4️⃣ Run the Application
+
 streamlit run app.py
 The app will open in your browser at http://localhost:8501.
 
@@ -70,26 +100,20 @@ Use these credentials to access the Admin Dashboard.
 
 📷 Screenshots
 🔑 Login Page
-
 📌 Loan Request Page
-![Screenshot (316)](https://github.com/user-attachments/assets/80152123-37ac-4d7e-913e-9e10186745ad)
+![Screenshot (316)](https://github.com/user-attachments/assets/26fb2607-3e10-42aa-8583-c57345b33e2d)
 
 💰 Bidding Page
-![Screenshot (314)](https://github.com/user-attachments/assets/d193e9f3-232c-4919-9388-ef585e139f02)
+![Screenshot (314)](https://github.com/user-attachments/assets/66ded6a6-8866-432a-8591-bf84ec21ebeb)
 
-View Loan (Accept Loan on personal requests, and view other requests)
-![Screenshot (317)](https://github.com/user-attachments/assets/d179bb84-a4fc-440f-ace7-95b973c7e262)
+📑 View Loans
+![Screenshot (317)](https://github.com/user-attachments/assets/5b99d26a-c965-41f1-a0ba-8a13756f650a)
 
 📊 Financial Insights
-![Screenshot (318)](https://github.com/user-attachments/assets/371e404c-0f10-4b8c-acf5-77c13f196781)
+![Screenshot (318)](https://github.com/user-attachments/assets/66a4f031-d3ec-4d49-aff9-9b22723e3858)
 
-Admin (With Match Loans Feature)
-![Screenshot (319)](https://github.com/user-attachments/assets/73d7f5d9-835a-41e5-a200-b418b7ea05fb)
-
-
-
-🔗 GitHub Repository
-👉 https://github.com/M-Abdullah-K/AF3005_ProgrammingForFinance/tree/main/Loan_Bidding_App
+⚙️ Admin Panel (Match Loans Feature)
+![Screenshot (319)](https://github.com/user-attachments/assets/dff17091-6f49-45b5-9d28-296ba22ff805)
 
 📦 Dependencies
 streamlit - UI Framework
@@ -111,8 +135,6 @@ seaborn - Advanced Data Charts
 To install all dependencies, run:
 
 pip install -r requirements.txt
-
-
 🚀 Future Improvements
 ✅ Email notifications for loan requests & bid approvals
 ✅ Live WebSocket updates for real-time bidding
@@ -121,4 +143,5 @@ pip install -r requirements.txt
 
 🤝 Contributing
 Feel free to fork this repo and contribute!
+
 Create a pull request or open an issue if you have suggestions.
