@@ -9,37 +9,33 @@ def verify_password(password, hashed_password):
     return bcrypt.checkpw(password.encode(), hashed_password.encode())
 
 def login(username, password, user_type):
-    """Handles login for users and admins separately."""
     user = users_collection.find_one({"username": username})
 
     if user:
-        print(f"🟢 Found user: {user}")  # Debug log
+        print(f"🟢 Found user: {user}")  
         
         if user.get("role") == user_type and verify_password(password, user["password"]):
             return True
     
     return False
 
-
 def signup(username, password):
-    """Registers a new user (only non-admins)."""
-    print(f"🟢 Signup Attempt: Username = {username}")  # Debug log
+    print(f"🟢 Signup Attempt: Username = {username}")  
 
     existing_user = users_collection.find_one({"username": username})
     if existing_user:
-        print("❌ Username already exists!")  # Debug log
+        print("❌ Username already exists!")  
         return False
 
     hashed_password = hash_password(password)
     users_collection.insert_one({"username": username, "password": hashed_password, "role": "user"})
     
-    print("✅ Signup successful!")  # Debug log
+    print("✅ Signup successful!")  
     return True
 
 def ensure_admin_exists():
-    """Ensures an admin account exists in the database."""
-    admin_username = "admin123"  # Change this to your desired admin username
-    admin_password = "securepassword"  # Change this to a strong password
+    admin_username = "admin123"
+    admin_password = "securepassword"
 
     existing_admin = users_collection.find_one({"role": "admin"})
 
