@@ -1,8 +1,0 @@
-streamlit
-pymongo
-bcrypt
-sendgrid
-python-dotenv
-pandas
-matplotlib
-seaborn
