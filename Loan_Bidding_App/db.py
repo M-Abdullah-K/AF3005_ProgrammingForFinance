@@ -1,12 +1,17 @@
-import os
+import streamlit as st
 from pymongo import MongoClient
-from dotenv import load_dotenv
 
-# Load environment variables from .env file
-load_dotenv()
+# ✅ Use Streamlit Secrets
+MONGO_URI = st.secrets["MONGO_URI"]
 
-# Get MongoDB connection string from .env
-MONGO_URI = os.getenv("MONGO_URI")
+# Connect to MongoDB
+client = MongoClient(MONGO_URI)
+db = client["debt_auction_db"]
+
+# Collections
+users_collection = db["users"]
+loans_collection = db["loans"]
+bids_collection = db["bids"]
 
 # Ensure MONGO_URI is not None
 if not MONGO_URI:
